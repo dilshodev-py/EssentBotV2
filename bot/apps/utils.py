@@ -11,7 +11,7 @@ import openpyxl
 from aiogram.utils.markdown import hlink , hcode
 from aiogram.enums.parse_mode import ParseMode
 
-admins = [1148477816,6308227858]
+admins = [1148477816]
 
 
 def is_admin(msg):
