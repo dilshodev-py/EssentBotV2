@@ -1,0 +1,22 @@
+services:
+  postgres_service:
+    restart: always
+    image: postgres:alpine
+    container_name: postgres_container
+    environment:
+      - POSTGRES_PASSWORD=1
+    ports:
+      - 5432:5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+
+  bot:
+    restart: always
+    build: .
+    container_name: e-english
+    env_file: .env
+    depends_on:
+      - postgres_service
+    command: python3 main.py
+volumes:
+  pgdata:
